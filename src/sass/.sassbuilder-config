@@ -1,0 +1,11 @@
+{
+    "project_path": "/Users/carlschmidt/Documents/Websites/bitcoins-and-sents/src/sass",
+	"output_path": "/Users/carlschmidt/Documents/Websites/bitcoins-and-sents/src/css",
+	"options": {
+		"cache":         true,
+		"debug":         true,
+		"line-comments": true,
+		"line-numbers":  true,
+		"style":         "nested"
+	}
+}

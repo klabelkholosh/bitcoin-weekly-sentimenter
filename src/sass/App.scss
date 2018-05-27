@@ -1,0 +1,323 @@
+//main font stack
+$font-stack: Avenir,-apple-system,BlinkMacSystemFont,SegoeUI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,HelveticaNeue,sans-serif;
+
+//main colours used throughout
+$colour-darkslategrey: #324A5F;
+$colour-goldpoppy: #FEC601;
+$colour-redsweetbrown: #AD343E;
+$colour-whitebabypowder: #FDFFFC;
+$colour-maastrichtblue: #011627;
+
+$colour-lightslategrey: #6D8A96;
+$colour-indianred: #D56062;
+$colour-darkskyblue: #84BCDA;
+$colour-paynesgrey: #5D707F;
+
+$colour-appbg: #84BCDA;
+$colour-headerFont: #F37748;
+
+$fontsize-title: 35px;
+$fontsize-normal: 16px;
+$fontsize-small: 12px;
+
+//margin style for all React components within the .container
+$component-margin: 3em 3em 3em 3em;
+
+$margin-niceSpacing: 1em 3em 1em 3em;
+
+/* ----------------------------------------- */
+/* App.js Styles                             */
+/* ----------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+  background-color: $colour-maastrichtblue;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $colour-redsweetbrown;
+}
+
+/* ----------------------------------------- */
+/* App.js Styles                             */
+/* ----------------------------------------- */
+
+//basically the flat area behind the white box, for now...
+.App {
+  display: flex;
+  flex-direction: row;
+  background: $colour-lightslategrey;
+  height: 100vh;
+  min-height: 900px;
+}
+
+//this container is the white box in the middle of the screen which holds everything else
+.container {
+  background: $colour-whitebabypowder;
+  border-radius: 2px;
+  margin: 1rem auto;
+  position: relative;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  z-index: 0;
+  min-height: 800px;
+}
+
+
+/* ----------------------------------------- */
+/* Header.js Styles                          */
+/* ----------------------------------------- */
+
+.Header {
+  flex: 0.5; //container-level
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  background-color: $colour-darkskyblue;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: $margin-niceSpacing;
+    flex: 1;
+  }
+
+  li {
+    flex: 1;
+    font-size: $fontsize-title;
+    color: $colour-paynesgrey;
+  }
+
+  .li--right {
+    text-align: right;
+  }
+}
+
+/* ----------------------------------------- */
+/* WeekChart.js Styles                       */
+/* ----------------------------------------- */
+
+.WeekChart {
+  flex: 2; //container-level
+  display: flex;
+  flex-direction: row;
+  margin: $margin-niceSpacing;
+
+  h2 {
+    justify-content: space-between; 
+    flex:1;
+  }
+
+  ul {
+    justify-content: space-between;
+  }
+
+  li {
+    font-size: $fontsize-normal;
+  }
+
+  .leftPane {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+  }
+
+  /* when screen shrinks below 760, make menu a bit more mobile-friendly */
+  @media screen and (max-width : 768px) {
+     flex-direction: column;
+  }
+}
+
+.PieLabel {
+  font-size: $fontsize-title;
+  color: $colour-goldpoppy;
+}
+
+/* ----------------------------------------- */
+/* LatestTweets.js Styles                    */
+/* ----------------------------------------- */
+
+.LatestTweets {
+  flex: 1; //container-level
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #E8EBE4;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: stretch;
+  }
+
+  li {
+    margin: $margin-niceSpacing;
+    font-size: $fontsize-normal;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: $fontsize-small;
+    color: $colour-paynesgrey;
+  }
+}
+
+.TweetList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color: #fff;
+
+  &-reactList {
+    font-size: $fontsize-normal;
+    color: $colour-darkslategrey;
+    padding: 20px;
+    margin: $margin-niceSpacing;
+    font-size: $fontsize-small;
+    font-weight: bold;
+    line-height: 1.3em;
+    border: 4px solid $colour-lightslategrey;
+    border-radius: 10px;
+    font-weight: normal;
+  }
+
+  &-reactListContainer {
+    overflow: auto;
+    height: 120px;
+
+    .tweetDiv {
+      margin: 0;
+      padding: 10px 10px 59px 10px;
+      background-color: $colour-darkskyblue;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .avatar_twit {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+/* ----------------------------------------- */
+/* Footer.js Styles                          */
+/* ----------------------------------------- */
+
+.Footer {
+  flex: 0.25; //container-level
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  background-color: $colour-indianred;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    margin: $margin-niceSpacing;
+    flex: 1;
+  }
+
+  li {
+    flex: 1;
+    font-size: $fontsize-small;
+    color: #fff;
+  }
+
+  .li--right {
+    text-align: right;
+  }
+}
+
+/* ----------------------------------------- */
+/* BTCLoader.js Styles                       */
+/* ----------------------------------------- */
+
+.BTCLoader-loading {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: icon-spin 2s infinite linear;
+    animation: icon-spin 2s infinite linear;
+}
+
+.BTCLoader-failed {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;  
+}
+
+.BTCLoader-failed--errortext {
+    position: absolute;
+    bottom: -120px;
+    left: 0;
+    right: 10px;
+    margin: auto;
+    width: 200px;
+    height: 100px;  
+}
+
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}

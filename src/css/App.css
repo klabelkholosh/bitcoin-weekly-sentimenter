@@ -1,0 +1,227 @@
+/* ----------------------------------------- */
+/* App.js Styles                             */
+/* ----------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, SegoeUI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, HelveticaNeue, sans-serif;
+  background-color: #011627; }
+
+ul {
+  padding: 0; }
+
+li {
+  list-style-type: none; }
+
+a {
+  text-decoration: none;
+  color: #AD343E; }
+
+/* ----------------------------------------- */
+/* App.js Styles                             */
+/* ----------------------------------------- */
+.App {
+  display: flex;
+  flex-direction: row;
+  background: #6D8A96;
+  height: 100vh;
+  min-height: 900px; }
+
+.container {
+  background: #FDFFFC;
+  border-radius: 2px;
+  margin: 1rem auto;
+  position: relative;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  z-index: 0;
+  min-height: 800px; }
+
+/* ----------------------------------------- */
+/* Header.js Styles                          */
+/* ----------------------------------------- */
+.Header {
+  flex: 0.5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  background-color: #84BCDA;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  .Header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 3em 1em 3em;
+    flex: 1; }
+  .Header li {
+    flex: 1;
+    font-size: 35px;
+    color: #5D707F; }
+  .Header .li--right {
+    text-align: right; }
+
+/* ----------------------------------------- */
+/* WeekChart.js Styles                       */
+/* ----------------------------------------- */
+.WeekChart {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  margin: 1em 3em 1em 3em;
+  /* when screen shrinks below 760, make menu a bit more mobile-friendly */ }
+  .WeekChart h2 {
+    justify-content: space-between;
+    flex: 1; }
+  .WeekChart ul {
+    justify-content: space-between; }
+  .WeekChart li {
+    font-size: 16px; }
+  .WeekChart .leftPane {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; }
+    .WeekChart .leftPane .avatar {
+      width: 40%;
+      border-radius: 50%; }
+  @media screen and (max-width: 768px) {
+    .WeekChart {
+      flex-direction: column; } }
+
+.PieLabel {
+  font-size: 35px;
+  color: #FEC601; }
+
+/* ----------------------------------------- */
+/* LatestTweets.js Styles                    */
+/* ----------------------------------------- */
+.LatestTweets {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #E8EBE4;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  .LatestTweets ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: stretch; }
+  .LatestTweets li {
+    margin: 1em 3em 1em 3em;
+    font-size: 16px; }
+  .LatestTweets h4 {
+    margin: 0;
+    font-size: 12px;
+    color: #5D707F; }
+
+.TweetList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: #fff; }
+  .TweetList-reactList {
+    font-size: 16px;
+    color: #324A5F;
+    padding: 20px;
+    margin: 1em 3em 1em 3em;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.3em;
+    border: 4px solid #6D8A96;
+    border-radius: 10px;
+    font-weight: normal; }
+  .TweetList-reactListContainer {
+    overflow: auto;
+    height: 120px; }
+    .TweetList-reactListContainer .tweetDiv {
+      margin: 0;
+      padding: 10px 10px 59px 10px;
+      background-color: #84BCDA;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+      .TweetList-reactListContainer .tweetDiv ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center; }
+      .TweetList-reactListContainer .tweetDiv .avatar_twit {
+        border-radius: 50%; }
+
+/* ----------------------------------------- */
+/* Footer.js Styles                          */
+/* ----------------------------------------- */
+.Footer {
+  flex: 0.25;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  background-color: #D56062; }
+  .Footer ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 3em 1em 3em;
+    flex: 1; }
+  .Footer li {
+    flex: 1;
+    font-size: 12px;
+    color: #fff; }
+  .Footer .li--right {
+    text-align: right; }
+
+/* ----------------------------------------- */
+/* BTCLoader.js Styles                       */
+/* ----------------------------------------- */
+.BTCLoader-loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear; }
+
+.BTCLoader-failed {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px; }
+
+.BTCLoader-failed--errortext {
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  right: 10px;
+  margin: auto;
+  width: 200px;
+  height: 100px; }
+
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+/*# sourceMappingURL=App.css.map */
