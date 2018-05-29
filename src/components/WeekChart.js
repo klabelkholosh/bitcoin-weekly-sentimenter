@@ -14,12 +14,49 @@ import {
   VictoryTooltip,
   VictoryVoronoiContainer
 } from "victory";
+import Tooltip from "rc-tooltip";
+import 'rc-tooltip/assets/bootstrap.css';
 
 //------ My Images! --------/
 import btcGood from "../images/btc_happy.jpg";
 import btcMeh from "../images/btc_meh.jpeg";
 import btcBad from "../images/btc_bad.jpg";
 
+//just for showing the happy/meh/sad Satoshi face
+class SatoshiFace extends Component {
+  render() {
+    let { sentWeekPercent } = this.props;
+
+    return (
+      <Tooltip
+          placement='rightTop'
+          mouseEnterDelay={0}
+          mouseLeaveDelay={0.1}
+          destroyTooltipOnHide='false'
+          trigger='hover'
+          overlay={<div style={{ height: 50, width: 50 }}>{
+              sentWeekPercent > 35
+                ? sentWeekPercent > 70 ? 'BTC looking good!' : 'Huh. Could be better.'
+                : 'Bitcoin Cash is the real Bitcoin!'
+            }</div>}
+          align={{
+            offset: [4,0],
+          }}
+        >
+          <img
+            src={
+              sentWeekPercent > 35
+                ? sentWeekPercent > 70 ? btcGood : btcMeh
+                : btcBad
+            }
+            className="avatar"
+          />
+        </Tooltip>
+    )
+  }
+}
+
+//shows the weekly Victory chart, comprising a left pane with a pie chart / Satoshi's sentimenting face, the right pane shows the line graph for the 7 days.
 class WeekChart extends Component {
   render() {
     let { sentiment, posNegPieArr, sentWeekPercent } = this.props;
@@ -84,13 +121,8 @@ class WeekChart extends Component {
                 .numberDays + posNegPieArr[1].numberDays})`}
             />
           </svg>
-          <img
-            src={
-              sentWeekPercent > 35
-                ? sentWeekPercent > 70 ? btcGood : btcMeh
-                : btcBad
-            }
-            className="avatar"
+          <SatoshiFace 
+            sentWeekPercent={sentWeekPercent}
           />
         </div>
 
