@@ -8,22 +8,20 @@ const app = express();
 const port = process.env.PORT || 5000;
 const sentiment = new Sentiment();
 const cors = require("cors");
-
-//var cat = "TVPizB9BhrRnOerFbiJCd5GUu:iTi6cHZ6LlHiFBLFrVzDkU2nELPcwqfFNKECVRkstC9d9HxguI";
-var cat = process.env.TWITTER_CONSUMER_KEY+ ":"+process.env.TWITTER_CONSUMER_SECRET;
-var credentials = new Buffer(cat).toString('base64');
-var url = 'https://api.twitter.com/oauth2/token';
+const cat = process.env.TWITTER_CONSUMER_KEY+ ":"+process.env.TWITTER_CONSUMER_SECRET;
+const credentials = new Buffer(cat).toString('base64');
+const url = 'https://api.twitter.com/oauth2/token';
 var bearertoken = "";
+
+app.use(cors({ origin: true })); // sort out the CORS, man
+app.use(express.json()); // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 
 //little function used for calculating sentiment.
 function calcSentiment(twitChunk){
 	let sentCalc = JSON.parse(twitChunk.body).statuses.reduce((add, el) => add + Number(sentiment.analyze(el.text).score),0);
 	return sentCalc;
 }
-
-app.use(cors({ origin: true })); // sort out the CORS, man
-app.use(express.json()); // to support JSON-encoded bodies
-app.use(express.urlencoded()); // to support URL-encoded bodies
 
 //ok, so someone wants to search for Tweets! Let's do this...
 app.get('/twitterSearch', (req, res) => {
@@ -88,6 +86,7 @@ app.get('/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
+//basic test for sentiment functionality
 app.get('/sentiment/:sentString', (req, res) => {
 	let sentText = JSON.stringify(sentiment.analyze(req.params.sentString));
 	res.send({ sentiment: sentText });
