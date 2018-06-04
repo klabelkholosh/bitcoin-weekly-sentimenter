@@ -153,7 +153,7 @@ class WeekChart extends Component {
                 fontColor: "#6D8A96",
                 fontWeight: 100
               },
-              grid: { stroke: t => (t < 0 ? "tomato" : "grey") }
+              grid: { stroke: t => (t < 0 ? "#D56062" : "#5D707F") }
             }}
           />
           <VictoryLine
@@ -170,7 +170,10 @@ class WeekChart extends Component {
           <VictoryScatter
             style={{
               data: { fill: "#c43a31" },
-              labels: { fill: d => (d.y > 0 ? "green" : "tomato") },
+              labels: { 
+                fill: d => (d.y > 0 ? "green" : "#D56062"), 
+                fontSize: 40
+              },
               fontSize: 24
             }}
             labels={d => d.y}
