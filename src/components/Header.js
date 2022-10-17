@@ -1,9 +1,9 @@
 //----- React Components --------/
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 //----- BTC Logo ----------/
-import helpIcon from "../images/help.svg";
+import helpIcon from '../images/help.svg';
 
 //the topmost bar of the page, showing the title and an overall sentiment
 class Header extends Component {
@@ -13,9 +13,14 @@ class Header extends Component {
     return (
       <div className="Header">
         <ul>
-          <li>Bitcoin Weekly Sentimenter</li>
+          <li className="font-face-gh">Bitcoin Weekly Sentimenter</li>
           <li className="li--right">
-            Overall Mood: {mood > 35 ? (mood > 70 ? "Great" : "Meh") : "Bad"}
+            <card className="card-sentiment">
+              <content>Overall Mood</content>
+              <footer>
+                {mood > 35 ? (mood > 70 ? 'Great' : 'Meh') : 'Bad'}
+              </footer>
+            </card>
           </li>
         </ul>
       </div>
@@ -25,12 +30,12 @@ class Header extends Component {
 
 //prop types
 Header.propTypes = {
-  mood: PropTypes.number.isRequired
+  mood: PropTypes.number.isRequired,
 };
 
 //default props
 Header.defaultProps = {
-  mood: 50
+  mood: 50,
 };
 
 export default Header;
