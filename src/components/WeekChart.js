@@ -1,6 +1,6 @@
 //----- React Components --------/
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 //----- 3rd-party Components ------/
 import {
@@ -12,15 +12,15 @@ import {
   VictoryLabel,
   VictoryScatter,
   VictoryTooltip,
-  VictoryVoronoiContainer
-} from "victory";
-import Tooltip from "rc-tooltip";
+  VictoryVoronoiContainer,
+} from 'victory';
+import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
 
 //------ My Images! --------/
-import btcGood from "../images/btc_happy.jpg";
-import btcMeh from "../images/btc_meh.jpeg";
-import btcBad from "../images/btc_bad.jpg";
+import btcGood from '../images/btc_happy.jpg';
+import btcMeh from '../images/btc_meh.jpeg';
+import btcBad from '../images/btc_bad.jpg';
 
 //just for showing the happy/meh/sad Satoshi face
 class SatoshiFace extends Component {
@@ -29,30 +29,36 @@ class SatoshiFace extends Component {
 
     return (
       <Tooltip
-          placement='rightTop'
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0.1}
-          destroyTooltipOnHide='false'
-          trigger='hover'
-          overlay={<div style={{ height: 50, width: 50 }}>{
-              sentWeekPercent > 35
-                ? sentWeekPercent > 70 ? 'BTC looking good!' : 'Huh. Could be better.'
-                : 'Bitcoin Cash is the real Bitcoin!'
-            }</div>}
-          align={{
-            offset: [4,0],
-          }}
-        >
-          <img
-            src={
-              sentWeekPercent > 35
-                ? sentWeekPercent > 70 ? btcGood : btcMeh
-                : btcBad
-            }
-            className="avatar"
-          />
-        </Tooltip>
-    )
+        placement="rightTop"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0.1}
+        destroyTooltipOnHide={false}
+        trigger="hover"
+        overlay={
+          <div style={{ height: 50, width: 50 }}>
+            {sentWeekPercent > 35
+              ? sentWeekPercent > 70
+                ? 'BTC looking good!'
+                : 'Huh. Could be better.'
+              : 'Bitcoin Cash is the real Bitcoin!'}
+          </div>
+        }
+        align={{
+          offset: [4, 0],
+        }}
+      >
+        <img
+          src={
+            sentWeekPercent > 35
+              ? sentWeekPercent > 70
+                ? btcGood
+                : btcMeh
+              : btcBad
+          }
+          className="avatar"
+        />
+      </Tooltip>
+    );
   }
 }
 
@@ -64,7 +70,7 @@ class WeekChart extends Component {
 
     //colour array for pie chart
     const colors = {
-      pie: ["#84BCDA", "#D56062"]
+      pie: ['#84BCDA', '#D56062'],
     };
 
     //create array of dates corresponding to sentiment array numbers
@@ -89,9 +95,9 @@ class WeekChart extends Component {
               height={400}
               standalone={false}
               innerRadius={115}
-              colorScale={colors["pie"]}
+              colorScale={colors['pie']}
               style={{
-                labels: { fontSize: 0 }
+                labels: { fontSize: 0 },
               }}
             />
             <VictoryLabel
@@ -99,11 +105,11 @@ class WeekChart extends Component {
               style={{
                 fontSize: 40,
                 fontWeight: 100,
-                color: "blue"
+                color: 'blue',
               }}
               x={225}
               y={180}
-              text={sentWeekPercent + "%"}
+              text={sentWeekPercent + '%'}
             />
             <VictoryLabel
               textAnchor="middle"
@@ -117,13 +123,12 @@ class WeekChart extends Component {
               style={{ fontSize: 12 }}
               x={225}
               y={235}
-              text={`(${posNegPieArr[0].numberDays} out of ${posNegPieArr[0]
-                .numberDays + posNegPieArr[1].numberDays})`}
+              text={`(${posNegPieArr[0].numberDays} out of ${
+                posNegPieArr[0].numberDays + posNegPieArr[1].numberDays
+              })`}
             />
           </svg>
-          <SatoshiFace 
-            sentWeekPercent={sentWeekPercent}
-          />
+          <SatoshiFace sentWeekPercent={sentWeekPercent} />
         </div>
 
         <VictoryChart
@@ -139,9 +144,9 @@ class WeekChart extends Component {
               tickLabels: {
                 fontSize: 24,
                 padding: 5,
-                fontColor: "#6D8A96",
-                fontWeight: 100
-              }
+                fontColor: '#6D8A96',
+                fontWeight: 100,
+              },
             }}
           />
           <VictoryAxis
@@ -150,17 +155,17 @@ class WeekChart extends Component {
               tickLabels: {
                 fontSize: 24,
                 padding: 5,
-                fontColor: "#6D8A96",
-                fontWeight: 100
+                fontColor: '#6D8A96',
+                fontWeight: 100,
               },
-              grid: { stroke: t => (t < 0 ? "#D56062" : "#5D707F") }
+              grid: { stroke: (t) => (t < 0 ? '#D56062' : '#5D707F') },
             }}
           />
           <VictoryLine
             style={{
-              data: { stroke: "#84BCDA" },
-              parent: { border: "1px solid #ccc" },
-              strokeWidth: 5
+              data: { stroke: '#84BCDA' },
+              parent: { border: '1px solid #ccc' },
+              strokeWidth: 5,
             }}
             x="day"
             y="sentTot"
@@ -169,14 +174,14 @@ class WeekChart extends Component {
           />
           <VictoryScatter
             style={{
-              data: { fill: "#c43a31" },
-              labels: { 
-                fill: d => (d.y > 0 ? "green" : "#D56062"), 
-                fontSize: 40
+              data: { fill: '#c43a31' },
+              labels: {
+                fill: (d) => (d.y > 0 ? 'green' : '#D56062'),
+                fontSize: 40,
               },
-              fontSize: 24
+              fontSize: 24,
             }}
-            labels={d => d.y}
+            labels={(d) => d.y}
             labelComponent={<VictoryTooltip />}
             size={5}
             x="day"
@@ -191,7 +196,7 @@ class WeekChart extends Component {
 
 //prop types
 WeekChart.propTypes = {
-  sentiment: PropTypes.array.isRequired
+  sentiment: PropTypes.array.isRequired,
 };
 
 //default props
@@ -203,8 +208,8 @@ WeekChart.defaultProps = {
     { day: 4, sentTot: 0 },
     { day: 5, sentTot: 0 },
     { day: 6, sentTot: 0 },
-    { day: 7, sentTot: 0 }
-  ]
+    { day: 7, sentTot: 0 },
+  ],
 };
 
 export default WeekChart;
