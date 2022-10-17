@@ -95,7 +95,9 @@ class App extends Component {
   callApi = async (params) => {
     let response = await params.map(async (el) => {
       const response = await fetch(
-        window.encodeURI(`http://localhost:5001/twitterSearch/`),
+        window.encodeURI(
+          `https://us-central1-bitcoin-bkend.cloudfunctions.net/twitterSearch/`
+        ),
         {
           method: 'POST',
           body: JSON.stringify(el),
