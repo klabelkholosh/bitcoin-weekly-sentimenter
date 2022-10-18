@@ -96,8 +96,8 @@ class App extends Component {
     let response = await params.map(async (el) => {
       const response = await fetch(
         window.encodeURI(
-          // `https://us-central1-bitcoin-bkend.cloudfunctions.net/twitterSearch/`
-          `http://127.0.0.1:5001/bitcoin-bkend/us-central1/twitterSearch/`
+          `https://us-central1-bitcoin-bkend.cloudfunctions.net/twitterSearch/`
+          // `http://127.0.0.1:5001/bitcoin-bkend/us-central1/twitterSearch/`
         ),
         {
           method: 'POST',
