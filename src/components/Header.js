@@ -9,6 +9,12 @@ import helpIcon from '../images/help.svg';
 class Header extends Component {
   render() {
     let { mood } = this.props;
+    let moodObj =
+      mood > 35
+        ? mood > 70
+          ? { desc: 'Great', class: 'mood-great' }
+          : { desc: 'Meh', class: 'mood-meh' }
+        : { desc: 'Bad', class: 'mood-bad' };
 
     return (
       <div className="Header">
@@ -17,9 +23,7 @@ class Header extends Component {
           <li className="li--right">
             <card className="card-sentiment">
               <content>Overall Mood</content>
-              <footer>
-                {mood > 35 ? (mood > 70 ? 'Great' : 'Meh') : 'Bad'}
-              </footer>
+              <footer className={moodObj.class}>{moodObj.desc}</footer>
             </card>
           </li>
         </ul>

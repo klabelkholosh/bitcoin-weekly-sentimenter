@@ -1,20 +1,21 @@
 //main font stack
-$font-stack: Avenir,-apple-system,BlinkMacSystemFont,SegoeUI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,HelveticaNeue,sans-serif;
+$font-stack: Avenir, -apple-system, BlinkMacSystemFont, SegoeUI, Roboto,
+  Oxygen-Sans, Ubuntu, Cantarell, HelveticaNeue, sans-serif;
 
 //main colours used throughout
-$colour-darkslategrey: #324A5F;
-$colour-goldpoppy: #FEC601;
-$colour-redsweetbrown: #AD343E;
-$colour-whitebabypowder: #FDFFFC;
+$colour-darkslategrey: #324a5f;
+$colour-goldpoppy: #fec601;
+$colour-redsweetbrown: #ad343e;
+$colour-whitebabypowder: #fdfffc;
 $colour-maastrichtblue: #011627;
 
-$colour-lightslategrey: #6D8A96;
-$colour-indianred: #D56062;
-$colour-darkskyblue: #84BCDA;
-$colour-paynesgrey: #5D707F;
+$colour-lightslategrey: #6d8a96;
+$colour-indianred: #d56062;
+$colour-darkskyblue: #84bcda;
+$colour-paynesgrey: #5d707f;
 
-$colour-appbg: #84BCDA;
-$colour-headerFont: #F37748;
+$colour-appbg: #84bcda;
+$colour-headerFont: #f37748;
 
 $fontsize-title: 35px;
 $fontsize-large: 25px;
@@ -73,18 +74,17 @@ a {
   width: 75%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   z-index: 0;
   min-height: 800px;
 
   /* when screen shrinks below 760, make things a bit more mobile-friendly */
-  @media screen and (max-width : 768px) {
+  @media screen and (max-width: 768px) {
     margin: 0 auto;
     width: 100%;
     height: 100%;
   }
 }
-
 
 /* ----------------------------------------- */
 /* Header.js Styles                          */
@@ -97,7 +97,7 @@ a {
   align-items: center;
   margin: 0;
   background-color: $colour-darkskyblue;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   ul {
     display: flex;
@@ -106,7 +106,7 @@ a {
     margin: $margin-niceSpacing;
     flex: 1;
 
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width: 768px) {
       flex-direction: column;
     }
   }
@@ -116,7 +116,7 @@ a {
     font-size: $fontsize-title;
     color: $colour-paynesgrey;
 
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width: 768px) {
       font-size: $fontsize-large;
       white-space: nowrap;
     }
@@ -125,11 +125,10 @@ a {
   .li--right {
     text-align: right;
 
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width: 768px) {
       font-size: $fontsize-normal;
     }
   }
-
 }
 
 /* ----------------------------------------- */
@@ -143,8 +142,8 @@ a {
   margin: $margin-niceSpacing;
 
   h2 {
-    justify-content: space-between; 
-    flex:1;
+    justify-content: space-between;
+    flex: 1;
   }
 
   ul {
@@ -166,12 +165,12 @@ a {
       border-radius: 50%;
     }
 
-    @media screen and (max-width : 768px) {
-       flex-direction: row;
+    @media screen and (max-width: 768px) {
+      flex-direction: row;
     }
   }
-  @media screen and (max-width : 768px) {
-     flex-direction: column-reverse;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
   }
 }
 
@@ -191,8 +190,8 @@ a {
   margin: 0;
   justify-content: flex-start;
   align-items: stretch;
-  background-color: #E8EBE4;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color: #e8ebe4;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   ul {
     display: flex;
@@ -205,9 +204,9 @@ a {
     margin: $margin-niceSpacing;
     font-size: $fontsize-normal;
 
-    @media screen and (max-width : 768px) {
-        margin: $margin-mobileTweetList;
-        font-size: $fontsize-small;
+    @media screen and (max-width: 768px) {
+      margin: $margin-mobileTweetList;
+      font-size: $fontsize-small;
     }
   }
 
@@ -216,7 +215,7 @@ a {
     font-size: $fontsize-small;
     color: $colour-paynesgrey;
   }
-  @media screen and (max-width : 768px) {
+  @media screen and (max-width: 768px) {
     justify-content: center;
   }
 }
@@ -226,7 +225,7 @@ a {
   display: flex;
   flex-direction: column;
   margin: 0;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   background-color: #fff;
 
   &-reactList {
@@ -250,7 +249,7 @@ a {
       margin: 0;
       padding: 10px 10px 59px 10px;
       background-color: $colour-darkskyblue;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
       ul {
         display: flex;
@@ -283,9 +282,9 @@ a {
     margin: $margin-niceSpacing;
     flex: 1;
 
-    @media screen and (max-width : 768px) {
-       flex-direction: column;
-       align-items: center;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
     }
   }
 
@@ -296,9 +295,8 @@ a {
   }
 
   .li--right {
-    text-align: right; 
+    text-align: right;
   }
-
 }
 
 /* ----------------------------------------- */
@@ -306,57 +304,57 @@ a {
 /* ----------------------------------------- */
 
 .BTCLoader-loading {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    -webkit-animation: icon-spin 2s infinite linear;
-    animation: icon-spin 2s infinite linear;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
 }
 
 .BTCLoader-failed {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100px;
-    height: 100px;  
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
 }
 
 .BTCLoader-failed--errortext {
-    position: absolute;
-    bottom: -120px;
-    left: 0;
-    right: 10px;
-    margin: auto;
-    width: 200px;
-    height: 100px;  
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  right: 10px;
+  margin: auto;
+  width: 200px;
+  height: 100px;
 }
 
 @-webkit-keyframes icon-spin {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
 
 @keyframes icon-spin {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }

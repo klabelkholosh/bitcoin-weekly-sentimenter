@@ -30,12 +30,15 @@ class SatoshiFace extends Component {
     return (
       <Tooltip
         placement="rightTop"
-        mouseEnterDelay={0}
+        mouseEnterDelay={0.1}
         mouseLeaveDelay={0.1}
         destroyTooltipOnHide={false}
         trigger="hover"
         overlay={
-          <div style={{ height: 50, width: 50 }}>
+          <div
+            style={{ height: 75, width: 75, fontSize: 14 }}
+            className="tooltip"
+          >
             {sentWeekPercent > 35
               ? sentWeekPercent > 70
                 ? 'BTC looking good!'
