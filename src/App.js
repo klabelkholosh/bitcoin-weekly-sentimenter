@@ -119,7 +119,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="container">
+        <div className="container animate-in">
           {tweetsLatest !== '' && <Header mood={sentWeekPercent} />}
           {tweetsLatest !== '' && (
             <WeekChart

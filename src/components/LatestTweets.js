@@ -1,6 +1,6 @@
 //----- React Components ---------/
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 //container class for the latest tweets list
 class LatestTweets extends Component {
@@ -11,7 +11,7 @@ class LatestTweets extends Component {
       <div className="LatestTweets">
         <ul>
           <li>Latest Tweets</li>
-          <li>
+          <li className="tweetcontainer">
             <div>
               <TweetList tweetList={tweetList} />
             </div>
@@ -24,12 +24,12 @@ class LatestTweets extends Component {
 
 //prop types
 LatestTweets.propTypes = {
-  tweetList: PropTypes.array.isRequired
+  tweetList: PropTypes.array.isRequired,
 };
 
 //default props
 LatestTweets.defaultProps = {
-  tweetList: []
+  tweetList: [],
 };
 
 //list showing latest tweets for most recent Twitter API call
@@ -37,7 +37,7 @@ class TweetList extends Component {
   renderItem = (index, key) => {
     return (
       <div key={key} className="TweetList-reactList">
-        {this.props.tweetList[index].text} -{" "}
+        {this.props.tweetList[index].text} -{' '}
         <b>@{this.props.tweetList[index].user.screen_name}</b>
       </div>
     );
@@ -54,15 +54,38 @@ class TweetList extends Component {
               <div className="tweetDiv" key={idx}>
                 <ul>
                   <li>
-                    <img
-                      className="avatar_twit"
-                      src={el.user.profile_image_url}
-                    />
+                    {' '}
+                    <a
+                      href={`https://twitter.com/intent/user?user_id=${el.user.id_str}`}
+                      target="_blank"
+                    >
+                      {' '}
+                      <img
+                        className="avatar_twit"
+                        src={el.user.profile_image_url}
+                      />
+                    </a>
                   </li>
                   <li>
-                    <b>@{el.user.screen_name}</b>
+                    <b>
+                      {' '}
+                      <a
+                        href={`https://twitter.com/intent/user?user_id=${el.user.id_str}`}
+                        target="_blank"
+                      >
+                        {' '}
+                        @{el.user.screen_name}
+                      </a>
+                    </b>
                   </li>
-                  <li>{el.text}</li>
+                  <li>
+                    <a
+                      href={`https://twitter.com/web/status/${el.id_str}`}
+                      target="_blank"
+                    >
+                      {el.text}
+                    </a>
+                  </li>
                 </ul>
               </div>
             );
@@ -75,12 +98,12 @@ class TweetList extends Component {
 
 //prop types
 TweetList.propTypes = {
-  tweetList: PropTypes.array.isRequired
+  tweetList: PropTypes.array.isRequired,
 };
 
 //default props
 TweetList.defaultProps = {
-  tweetList: []
+  tweetList: [],
 };
 
 export default LatestTweets;

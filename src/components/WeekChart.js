@@ -37,7 +37,7 @@ class SatoshiFace extends Component {
         overlay={
           <div
             style={{ height: 75, width: 75, fontSize: 14 }}
-            className="tooltip"
+            className="tooltip animate-in"
           >
             {sentWeekPercent > 35
               ? sentWeekPercent > 70
@@ -87,9 +87,9 @@ class WeekChart extends Component {
     }
 
     return (
-      <div className="WeekChart">
+      <div className="WeekChart animate-in">
         <div className="leftPane">
-          <svg viewBox="0 0 450 400" width="450" height="400">
+          <svg viewBox="0 0 450 400" className="pieChart">
             <VictoryPie
               data={posNegPieArr}
               x="type"
@@ -134,64 +134,66 @@ class WeekChart extends Component {
           <SatoshiFace sentWeekPercent={sentWeekPercent} />
         </div>
 
-        <VictoryChart
-          theme={VictoryTheme.material}
-          width={1200}
-          height={850}
-          containerComponent={<VictoryVoronoiContainer />}
-        >
-          <VictoryAxis
-            tickValues={[1, 2, 3, 4, 5, 6, 7]}
-            tickFormat={dayAxis}
-            style={{
-              tickLabels: {
+        <div className="rightPane">
+          <VictoryChart
+            theme={VictoryTheme.material}
+            width={1200}
+            height={850}
+            containerComponent={<VictoryVoronoiContainer />}
+          >
+            <VictoryAxis
+              tickValues={[1, 2, 3, 4, 5, 6, 7]}
+              tickFormat={dayAxis}
+              style={{
+                tickLabels: {
+                  fontSize: 24,
+                  padding: 5,
+                  fontColor: '#6D8A96',
+                  fontWeight: 100,
+                },
+              }}
+            />
+            <VictoryAxis
+              dependentAxis
+              style={{
+                tickLabels: {
+                  fontSize: 24,
+                  padding: 5,
+                  fontColor: '#6D8A96',
+                  fontWeight: 100,
+                },
+                grid: { stroke: (t) => (t < 0 ? '#D56062' : '#5D707F') },
+              }}
+            />
+            <VictoryLine
+              style={{
+                data: { stroke: '#84BCDA' },
+                parent: { border: '1px solid #ccc' },
+                strokeWidth: 5,
+              }}
+              x="day"
+              y="sentTot"
+              data={sentiment}
+              animate={{ duration: 100 }}
+            />
+            <VictoryScatter
+              style={{
+                data: { fill: '#c43a31' },
+                labels: {
+                  fill: (d) => (d.y > 0 ? 'green' : '#D56062'),
+                  fontSize: 40,
+                },
                 fontSize: 24,
-                padding: 5,
-                fontColor: '#6D8A96',
-                fontWeight: 100,
-              },
-            }}
-          />
-          <VictoryAxis
-            dependentAxis
-            style={{
-              tickLabels: {
-                fontSize: 24,
-                padding: 5,
-                fontColor: '#6D8A96',
-                fontWeight: 100,
-              },
-              grid: { stroke: (t) => (t < 0 ? '#D56062' : '#5D707F') },
-            }}
-          />
-          <VictoryLine
-            style={{
-              data: { stroke: '#84BCDA' },
-              parent: { border: '1px solid #ccc' },
-              strokeWidth: 5,
-            }}
-            x="day"
-            y="sentTot"
-            data={sentiment}
-            animate={{ duration: 100 }}
-          />
-          <VictoryScatter
-            style={{
-              data: { fill: '#c43a31' },
-              labels: {
-                fill: (d) => (d.y > 0 ? 'green' : '#D56062'),
-                fontSize: 40,
-              },
-              fontSize: 24,
-            }}
-            labels={(d) => d.y}
-            labelComponent={<VictoryTooltip />}
-            size={5}
-            x="day"
-            y="sentTot"
-            data={sentiment}
-          />
-        </VictoryChart>
+              }}
+              labels={(d) => d.y}
+              labelComponent={<VictoryTooltip />}
+              size={5}
+              x="day"
+              y="sentTot"
+              data={sentiment}
+            />
+          </VictoryChart>
+        </div>
       </div>
     );
   }

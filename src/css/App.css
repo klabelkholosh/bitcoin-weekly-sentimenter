@@ -20,7 +20,12 @@ li {
 
 a {
   text-decoration: none;
-  color: #ad343e;
+  color: rgb(73, 72, 72);
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(96, 96, 213);
 }
 
 @font-face {
@@ -68,6 +73,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 /* ----------------------------------------- */
 /* App.js Styles                             */
@@ -139,6 +145,7 @@ a {
 .Header .li--right {
   text-align: right;
 }
+
 @media screen and (max-width: 768px) {
   .Header .li--right {
     font-size: 16px;
@@ -168,13 +175,26 @@ a {
 .WeekChart .leftPane {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
+  flex: 2 3 auto;
 }
+.WeekChart .rightPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 3 2 auto;
+}
+
 .WeekChart .leftPane .avatar {
-  width: 40%;
+  width: 35%;
   border-radius: 50%;
   margin-bottom: 48px;
+}
+
+.pieChart {
+  margin: 0px auto;
+  padding: 0px auto;
 }
 @media screen and (max-width: 768px) {
   .WeekChart {
@@ -182,6 +202,8 @@ a {
   }
   .WeekChart .leftPane {
     flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
   }
   .WeekChart .leftPane .avatar {
     margin-bottom: 0px;
@@ -196,6 +218,21 @@ a {
 .PieLabel {
   font-size: 35px;
   color: #fec601;
+}
+
+.animate-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 /* ----------------------------------------- */
@@ -219,6 +256,10 @@ a {
 }
 .LatestTweets li {
   margin: 1em 3em 1em 3em;
+  font-size: 16px;
+}
+.tweetcontainer {
+  margin: 0.5em 3em 1em 3em !important;
   font-size: 16px;
 }
 @media screen and (max-width: 768px) {
@@ -260,18 +301,20 @@ a {
 }
 .TweetList-reactListContainer {
   overflow: auto;
-  height: 120px;
+  height: 10vh;
 }
 .TweetList-reactListContainer .tweetDiv {
   margin: 0;
-  padding: 10px 10px 59px 10px;
+  /* padding: 10px 10px 59px 10px; */
   background-color: #84bcda;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  height: 10vh;
 }
 .TweetList-reactListContainer .tweetDiv ul {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 10vh;
 }
 .TweetList-reactListContainer .tweetDiv .avatar_twit {
   border-radius: 50%;
@@ -286,7 +329,7 @@ a {
   flex-direction: row;
   align-items: center;
   margin: 0;
-  background-color: #d56062;
+  background-color: #84bcda;
 }
 .Footer ul {
   display: flex;
@@ -307,6 +350,14 @@ a {
 }
 .Footer .li--right {
   text-align: right;
+}
+
+.Footer .li--right a {
+  color: white;
+}
+
+.Footer .li--right a:hover {
+  color: rgb(96, 96, 213);
 }
 
 /* ----------------------------------------- */
