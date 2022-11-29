@@ -20,7 +20,7 @@ import 'rc-tooltip/assets/bootstrap.css';
 //------ My Images! --------/
 import btcGood from '../images/btc_happy.jpg';
 import btcMeh from '../images/btc_meh.jpeg';
-import btcBad from '../images/btc_bad.jpg';
+import btcBad from '../images/btc_bad.png';
 
 //just for showing the happy/meh/sad Satoshi face
 class SatoshiFace extends Component {
@@ -43,7 +43,7 @@ class SatoshiFace extends Component {
               ? sentWeekPercent > 70
                 ? 'BTC looking good!'
                 : 'Huh. Could be better.'
-              : 'Bitcoin Cash is the real Bitcoin!'}
+              : 'BTC not looking great..'}
           </div>
         }
         align={{
