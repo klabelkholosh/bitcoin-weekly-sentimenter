@@ -5,7 +5,7 @@ See how Twitter feels about Bitcoin, in the last 7 days.
 Front-end, potentially meant to be used in conjunction with my back-end, demo of both visible below:
 https://bitcoin-weekly-sentiment.app.com/
 
-Uses the free Twitter API (100 tweet limit) to perform a simple binary good/bad sentiment analysis for each day.
+Uses the free Twitter API (100 tweet limit) to perform a simple binary good/bad sentiment analysis for each day, and charts it using Victory Charts.
 
 ## Settings 
 
