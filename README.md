@@ -13,6 +13,6 @@ You'll need a .env file in your root project dir with your Twitter application c
 
   TWITTER_CONSUMER_SECRET=bla
 
-##License 
+## License 
 
 MIT
